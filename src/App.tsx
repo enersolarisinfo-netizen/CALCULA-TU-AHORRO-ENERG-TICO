@@ -19,49 +19,47 @@ const CURRENCIES = {
 const PLANS = [2,3,5,7,10];
 
 const APPLIANCE_CATS = [
-  { id:"fridge", icon:"❄️", name:{es:"Nevera",en:"Refrigerator",pt:"Geladeira",fr:"Réfrigérateur"}, desc:{es:"Funciona 24h continuas. A mayor eficiencia energética, menor consumo.",en:"Runs 24h. More efficient models use less power.",pt:"Funciona 24h. Modelos eficientes consomem menos.",fr:"Fonctionne 24h. Les modèles efficaces consomment moins."}, subItems:[
+  { id:"fridge", icon:"❄️", name:{es:"Nevera",en:"Refrigerator",pt:"Geladeira",fr:"Réfrigérateur"}, desc:{es:"Funciona 24h continuas.",en:"Runs 24h.",pt:"Funciona 24h.",fr:"Fonctionne 24h."}, subItems:[
     { label:{es:"Estándar 200–350L",en:"Standard 200–350L",pt:"Padrão 200–350L",fr:"Standard 200–350L"}, kw:0.18, defaultH:24 },
     { label:{es:"Grande / Side-by-side",en:"Large / Side-by-side",pt:"Grande / Side-by-side",fr:"Grand / Américain"}, kw:0.30, defaultH:24 },
   ]},
-  { id:"ac", icon:"🌀", name:{es:"Aire Acondicionado",en:"Air Conditioner",pt:"Ar-condicionado",fr:"Climatiseur"}, desc:{es:"El mayor consumidor del hogar. Impacta directamente la factura mensual.",en:"Biggest home energy consumer. Directly impacts your bill.",pt:"Maior consumidor residencial.",fr:"Plus grand consommateur d'énergie du foyer."}, subItems:[
+  { id:"ac", icon:"🌀", name:{es:"Aire Acondicionado",en:"Air Conditioner",pt:"Ar-condicionado",fr:"Climatiseur"}, desc:{es:"El mayor consumidor del hogar.",en:"Biggest home energy consumer.",pt:"Maior consumidor residencial.",fr:"Plus grand consommateur."}, subItems:[
     { label:{es:"Mini Split 9000–12000 BTU",en:"Mini Split 9000–12000 BTU",pt:"Mini Split 9000–12000 BTU",fr:"Mini Split 9000–12000 BTU"}, kw:0.9, defaultH:8 },
     { label:{es:"Split 18000–24000 BTU",en:"Split 18000–24000 BTU",pt:"Split 18000–24000 BTU",fr:"Split 18000–24000 BTU"}, kw:1.8, defaultH:8 },
   ]},
-  { id:"light", icon:"💡", name:{es:"Iluminación",en:"Lighting",pt:"Iluminação",fr:"Éclairage"}, desc:{es:"LED consume hasta 80% menos que bombillos tradicionales.",en:"LED uses up to 80% less than traditional bulbs.",pt:"LED consome até 80% menos.",fr:"LED consomme jusqu'à 80% de moins."}, subItems:[
+  { id:"light", icon:"💡", name:{es:"Iluminación",en:"Lighting",pt:"Iluminação",fr:"Éclairage"}, desc:{es:"LED consume hasta 80% menos.",en:"LED uses up to 80% less.",pt:"LED consome até 80% menos.",fr:"LED consomme jusqu'à 80% de moins."}, subItems:[
     { label:{es:"LED — 10 puntos",en:"LED — 10 fixtures",pt:"LED — 10 pontos",fr:"LED — 10 points"}, kw:0.06, defaultH:6 },
     { label:{es:"Mixta LED + halógena",en:"Mixed LED + halogen",pt:"Mista LED + halógena",fr:"Mixte LED + halogène"}, kw:0.14, defaultH:6 },
   ]},
-  { id:"tv", icon:"📺", name:{es:"TV y Entretenimiento",en:"TV & Entertainment",pt:"TV e Entretenimento",fr:"TV & Divertissement"}, desc:{es:"Incluye TV, decodificador, consola de videojuegos y router WiFi.",en:"Includes TV, decoder, gaming console and WiFi router.",pt:"Inclui TV, decodificador, console e roteador.",fr:"Comprend TV, décodeur, console et routeur."}, subItems:[
+  { id:"tv", icon:"📺", name:{es:"TV y Entretenimiento",en:"TV & Entertainment",pt:"TV e Entretenimento",fr:"TV & Divertissement"}, desc:{es:"TV, decodificador, consola y router.",en:"TV, decoder, console and router.",pt:"TV, decodificador, console e roteador.",fr:"TV, décodeur, console et routeur."}, subItems:[
     { label:{es:"TV 40–55\" + router",en:"TV 40–55\" + router",pt:"TV 40–55\" + roteador",fr:"TV 40–55\" + routeur"}, kw:0.12, defaultH:6 },
     { label:{es:"TV 65\"+ home theater + consola",en:"TV 65\"+ home theater + console",pt:"TV 65\"+ home theater + console",fr:"TV 65\"+ home cinéma + console"}, kw:0.35, defaultH:5 },
   ]},
-  { id:"washer", icon:"🫧", name:{es:"Lavadora / Secadora",en:"Washer / Dryer",pt:"Lavadora / Secadora",fr:"Lave-linge / Sèche-linge"}, desc:{es:"La secadora eléctrica consume 3× más que la lavadora sola.",en:"Electric dryer uses 3× more energy than washer alone.",pt:"Secadora consome 3× mais que a lavadora.",fr:"Sèche-linge électrique consomme 3× plus."}, subItems:[
-    { label:{es:"Solo lavadora (carga frontal)",en:"Washer only (front load)",pt:"Só lavadora (frontal)",fr:"Lave-linge seul"}, kw:0.5, defaultH:1 },
-    { label:{es:"Lavadora + secadora eléctrica",en:"Washer + electric dryer",pt:"Lavadora + secadora",fr:"Lave-linge + sèche-linge"}, kw:2.2, defaultH:1.5 },
+  { id:"washer", icon:"🫧", name:{es:"Lavadora / Secadora",en:"Washer / Dryer",pt:"Lavadora / Secadora",fr:"Lave-linge / Sèche-linge"}, desc:{es:"La secadora consume 3× más.",en:"Dryer uses 3× more energy.",pt:"Secadora consome 3× mais.",fr:"Sèche-linge consomme 3× plus."}, subItems:[
+    { label:{es:"Solo lavadora",en:"Washer only",pt:"Só lavadora",fr:"Lave-linge seul"}, kw:0.5, defaultH:1 },
+    { label:{es:"Lavadora + secadora",en:"Washer + dryer",pt:"Lavadora + secadora",fr:"Lave-linge + sèche-linge"}, kw:2.2, defaultH:1.5 },
   ]},
-  { id:"shower", icon:"🚿", name:{es:"Ducha Eléctrica",en:"Electric Shower",pt:"Chuveiro Elétrico",fr:"Douche Électrique"}, desc:{es:"Alta potencia en corto tiempo. Muy común en Colombia y Brasil.",en:"High power, short time. Very common in Colombia & Brazil.",pt:"Alta potência, curto tempo. Muito comum no Brasil.",fr:"Haute puissance, courte durée."}, subItems:[
+  { id:"shower", icon:"🚿", name:{es:"Ducha Eléctrica",en:"Electric Shower",pt:"Chuveiro Elétrico",fr:"Douche Électrique"}, desc:{es:"Alta potencia en corto tiempo.",en:"High power, short time.",pt:"Alta potência, curto tempo.",fr:"Haute puissance, courte durée."}, subItems:[
     { label:{es:"Estándar 4.5–5.5 kW",en:"Standard 4.5–5.5 kW",pt:"Padrão 4.5–5.5 kW",fr:"Standard 4.5–5.5 kW"}, kw:5.0, defaultH:0.25 },
-    { label:{es:"Presurizada multitemp. 7+ kW",en:"Multi-temp pressurized 7+ kW",pt:"Multitemp pressurizada 7+ kW",fr:"Multi-températures 7+ kW"}, kw:7.5, defaultH:0.25 },
+    { label:{es:"Presurizada 7+ kW",en:"Pressurized 7+ kW",pt:"Pressurizada 7+ kW",fr:"Pressurisée 7+ kW"}, kw:7.5, defaultH:0.25 },
   ]},
-  { id:"kitchen", icon:"🍳", name:{es:"Cocina / Microondas",en:"Stove / Microwave",pt:"Fogão / Microondas",fr:"Cuisinière / Micro-ondes"}, desc:{es:"La inducción y vitrocerámica son más eficientes que las espirales.",en:"Induction and ceramic are more efficient than coil burners.",pt:"Indução é mais eficiente que bocas de resistência.",fr:"L'induction est plus efficace que les plaques classiques."}, subItems:[
-    { label:{es:"Microondas + pocillos eléctricos",en:"Microwave + electric burners",pt:"Microondas + bocas elétricas",fr:"Micro-ondes + plaques"}, kw:1.2, defaultH:1 },
-    { label:{es:"Cocina inducción 4 puestos",en:"4-burner induction cooktop",pt:"Fogão indução 4 bocas",fr:"Plaque induction 4 feux"}, kw:3.5, defaultH:1.5 },
+  { id:"kitchen", icon:"🍳", name:{es:"Cocina / Microondas",en:"Stove / Microwave",pt:"Fogão / Microondas",fr:"Cuisinière / Micro-ondes"}, desc:{es:"Inducción es más eficiente.",en:"Induction is more efficient.",pt:"Indução é mais eficiente.",fr:"L'induction est plus efficace."}, subItems:[
+    { label:{es:"Microondas + eléctrico",en:"Microwave + electric",pt:"Microondas + elétrico",fr:"Micro-ondes + plaques"}, kw:1.2, defaultH:1 },
+    { label:{es:"Cocina inducción 4 puestos",en:"4-burner induction",pt:"Fogão indução 4 bocas",fr:"Induction 4 feux"}, kw:3.5, defaultH:1.5 },
   ]},
-  { id:"ev", icon:"🔋", name:{es:"Vehículo Eléctrico",en:"Electric Vehicle",pt:"Veículo Elétrico",fr:"Véhicule Électrique"}, desc:{es:"La carga nocturna puede aumentar tu factura hasta un 40%.",en:"Overnight charging can increase your bill by up to 40%.",pt:"Carga noturna pode aumentar a conta em até 40%.",fr:"La charge nocturne peut augmenter la facture de 40%."}, subItems:[
-    { label:{es:"Moto eléctrica / scooter",en:"Electric motorcycle / scooter",pt:"Moto elétrica / scooter",fr:"Moto / scooter électrique"}, kw:0.8, defaultH:2 },
-    { label:{es:"Auto eléctrico (cargador 7 kW)",en:"Electric car (7 kW charger)",pt:"Carro elétrico (carregador 7 kW)",fr:"Voiture électrique (chargeur 7 kW)"}, kw:7.0, defaultH:4 },
+  { id:"ev", icon:"🔋", name:{es:"Vehículo Eléctrico",en:"Electric Vehicle",pt:"Veículo Elétrico",fr:"Véhicule Électrique"}, desc:{es:"La carga puede aumentar tu factura 40%.",en:"Charging can increase bill 40%.",pt:"Carga pode aumentar conta 40%.",fr:"Charge peut augmenter facture 40%."}, subItems:[
+    { label:{es:"Moto eléctrica",en:"Electric motorcycle",pt:"Moto elétrica",fr:"Moto électrique"}, kw:0.8, defaultH:2 },
+    { label:{es:"Auto eléctrico 7 kW",en:"Electric car 7 kW",pt:"Carro elétrico 7 kW",fr:"Voiture électrique 7 kW"}, kw:7.0, defaultH:4 },
   ]},
-  { id:"office", icon:"💻", name:{es:"Oficina / Computadores",en:"Office / Computers",pt:"Escritório / Computadores",fr:"Bureau / Ordinateurs"}, desc:{es:"Home office típico: PC, monitor, cargadores y periféricos conectados.",en:"Typical home office: PC, monitor, chargers and peripherals.",pt:"Home office: PC, monitor, carregadores e periféricos.",fr:"Bureau à domicile: PC, écran, chargeurs et périphériques."}, subItems:[
-    { label:{es:"Laptop + monitor + periféricos",en:"Laptop + monitor + peripherals",pt:"Notebook + monitor + periféricos",fr:"Laptop + écran + périphériques"}, kw:0.20, defaultH:8 },
-    { label:{es:"PC escritorio + 2 monitores",en:"Desktop PC + 2 monitors",pt:"PC desktop + 2 monitores",fr:"PC bureau + 2 écrans"}, kw:0.45, defaultH:8 },
+  { id:"office", icon:"💻", name:{es:"Oficina / Computadores",en:"Office / Computers",pt:"Escritório / Computadores",fr:"Bureau / Ordinateurs"}, desc:{es:"PC, monitor y periféricos.",en:"PC, monitor and peripherals.",pt:"PC, monitor e periféricos.",fr:"PC, écran et périphériques."}, subItems:[
+    { label:{es:"Laptop + monitor",en:"Laptop + monitor",pt:"Notebook + monitor",fr:"Laptop + écran"}, kw:0.20, defaultH:8 },
+    { label:{es:"PC escritorio + 2 monitores",en:"Desktop + 2 monitors",pt:"PC desktop + 2 monitores",fr:"PC bureau + 2 écrans"}, kw:0.45, defaultH:8 },
   ]},
-  { id:"pump", icon:"💧", name:{es:"Bomba de Agua / Piscina",en:"Water Pump / Pool",pt:"Bomba d'Água / Piscina",fr:"Pompe à Eau / Piscine"}, desc:{es:"Las bombas hidroneumáticas y de piscina consumen según sus ciclos.",en:"Hydropneumatic and pool pumps consume in cycles.",pt:"Bombas consomem por ciclos de funcionamento.",fr:"Les pompes consomment selon leurs cycles de fonctionnement."}, subItems:[
-    { label:{es:"Bomba hidroneumática doméstica",en:"Domestic hydropneumatic pump",pt:"Bomba hidropneumática doméstica",fr:"Pompe hydropneumatique domestique"}, kw:0.75, defaultH:2 },
-    { label:{es:"Bomba piscina / presión alta",en:"Pool pump / high pressure",pt:"Bomba piscina / alta pressão",fr:"Pompe piscine / haute pression"}, kw:1.5, defaultH:4 },
+  { id:"pump", icon:"💧", name:{es:"Bomba de Agua",en:"Water Pump",pt:"Bomba d'Água",fr:"Pompe à Eau"}, desc:{es:"Bombas según sus ciclos.",en:"Pumps consume in cycles.",pt:"Bombas por ciclos.",fr:"Pompes selon cycles."}, subItems:[
+    { label:{es:"Bomba doméstica",en:"Domestic pump",pt:"Bomba doméstica",fr:"Pompe domestique"}, kw:0.75, defaultH:2 },
+    { label:{es:"Bomba piscina",en:"Pool pump",pt:"Bomba piscina",fr:"Pompe piscine"}, kw:1.5, defaultH:4 },
   ]},
 ];
-
-const APPL_NAMES = { es: APPLIANCE_CATS.map(c=>c.name.es), en: APPLIANCE_CATS.map(c=>c.name.en), pt: APPLIANCE_CATS.map(c=>c.name.pt), fr: APPLIANCE_CATS.map(c=>c.name.fr) };
 
 function fmtCur(n, cur) {
   const c = CURRENCIES[cur];
@@ -92,8 +90,7 @@ function Logo({ size=48 }) {
   );
 }
 
-// Dropdown accesible con cierre al click fuera
-function Dropdown({ label, items, onSelect, active }) {
+function Dropdown({ label, items, onSelect }) {
   const [open, setOpen] = useState(false);
   const ref = useRef();
   useEffect(() => {
@@ -103,20 +100,13 @@ function Dropdown({ label, items, onSelect, active }) {
   }, []);
   return (
     <div ref={ref} style={{ position:"relative" }}>
-      <button
-        onClick={() => setOpen(p => !p)}
-        style={{ background: open ? "rgba(245,166,35,0.18)" : "#1A1F2B", border:`1px solid ${open?"#F5A623":"rgba(255,255,255,0.14)"}`, color:"#E8EAF0", borderRadius:8, padding:"8px 12px", cursor:"pointer", fontFamily:"inherit", fontWeight:700, fontSize:13, display:"flex", alignItems:"center", gap:5, whiteSpace:"nowrap", minWidth:0 }}
-      >
+      <button onClick={() => setOpen(p => !p)} style={{ background:"#1A1F2B", border:"1px solid rgba(255,255,255,0.14)", color:"#E8EAF0", borderRadius:8, padding:"8px 12px", cursor:"pointer", fontFamily:"inherit", fontWeight:700, fontSize:13, display:"flex", alignItems:"center", gap:5, whiteSpace:"nowrap" }}>
         {label} <span style={{ fontSize:10, opacity:0.7 }}>▾</span>
       </button>
       {open && (
         <div style={{ position:"absolute", top:"calc(100% + 5px)", right:0, background:"#1A1F2B", border:"1px solid rgba(255,255,255,0.14)", borderRadius:10, overflow:"hidden", zIndex:999, minWidth:140, boxShadow:"0 8px 24px rgba(0,0,0,0.5)" }}>
           {items.map((item, i) => (
-            <div key={i}
-              onClick={() => { onSelect(item.value); setOpen(false); }}
-              style={{ padding:"10px 14px", cursor:"pointer", fontSize:13, fontWeight: item.active ? 700 : 400, background: item.active ? "rgba(245,166,35,0.12)" : "transparent", color: item.active ? "#F5A623" : "#E8EAF0", display:"flex", alignItems:"center", gap:8 }}
-            >
-              {item.icon && <span style={{ fontSize:14 }}>{item.icon}</span>}
+            <div key={i} onClick={() => { onSelect(item.value); setOpen(false); }} style={{ padding:"10px 14px", cursor:"pointer", fontSize:13, fontWeight: item.active ? 700 : 400, background: item.active ? "rgba(245,166,35,0.12)" : "transparent", color: item.active ? "#F5A623" : "#E8EAF0", display:"flex", alignItems:"center", gap:8 }}>
               {item.label}
             </div>
           ))}
@@ -128,13 +118,13 @@ function Dropdown({ label, items, onSelect, active }) {
 
 export default function App() {
   const [lang, setLang] = useState("es");
-  const [cur, setCur]   = useState("COP");
+  const [cur, setCur] = useState("COP");
   const [bill, setBill] = useState("");
   const [rate, setRate] = useState(620);
-  const [hsp, setHsp]   = useState(4.5);
+  const [hsp, setHsp] = useState(4.5);
   const [planIdx, setPlanIdx] = useState(1);
   const [results, setResults] = useState(null);
-  const [error, setError]     = useState("");
+  const [error, setError] = useState("");
   const [selected, setSelected] = useState([]);
 
   const L = LANGS[lang];
@@ -143,11 +133,10 @@ export default function App() {
   const consumoFactura = useMemo(() => { const f=parseFloat(bill); return (!f||!rate)?0:f/rate; }, [bill,rate]);
   const consumoAppliance = useMemo(() => selected.reduce((a,s) => { const cat=APPLIANCE_CATS.find(c=>c.id===s.catId); const sub=cat?.subItems[s.subIdx]; return sub ? a+sub.kw*s.hours*s.qty*30 : a; }, 0), [selected]);
   const consumoTotal = useMemo(() => Math.max(consumoFactura, consumoAppliance, 1), [consumoFactura, consumoAppliance]);
-  const genMes       = useMemo(() => PLANS[planIdx]*hsp*30*0.8, [planIdx,hsp]);
-  const planRec      = useMemo(() => { const k=(consumoTotal/30)/(hsp*0.8); const i=PLANS.findIndex(p=>p>=k); return i<0?PLANS.length-1:i; }, [consumoTotal,hsp]);
+  const genMes = useMemo(() => PLANS[planIdx]*hsp*30*0.8, [planIdx,hsp]);
+  const planRec = useMemo(() => { const k=(consumoTotal/30)/(hsp*0.8); const i=PLANS.findIndex(p=>p>=k); return i<0?PLANS.length-1:i; }, [consumoTotal,hsp]);
 
-  const switchCur  = c  => { setCur(c); setRate(CURRENCIES[c].defaultRate); setBill(""); setResults(null); };
-  const switchLang = l  => setLang(l);
+  const switchCur = c => { setCur(c); setRate(CURRENCIES[c].defaultRate); setBill(""); setResults(null); };
 
   const addA = (catId, si) => setSelected(p => { if(p.find(x=>x.catId===catId&&x.subIdx===si)) return p; const cat=APPLIANCE_CATS.find(c=>c.id===catId); const sub=cat.subItems[si]; return [...p,{catId,subIdx:si,hours:sub.defaultH,qty:1}]; });
   const remA = (catId, si) => setSelected(p => p.filter(x=>!(x.catId===catId&&x.subIdx===si)));
@@ -158,112 +147,86 @@ export default function App() {
     const f=parseFloat(bill);
     if(!f||f<=0){ setError(L.err); return; }
     setError("");
-    const cobertura   = Math.min((genMes/consumoTotal)*100, 95);
-    const ahorroMes   = f*(cobertura/100);
-    const billAfter   = f-ahorroMes;
+    const cobertura = Math.min((genMes/consumoTotal)*100, 95);
+    const ahorroMes = f*(cobertura/100);
+    const billAfter = f-ahorroMes;
     const ahorroAnual = ahorroMes*12;
-    const ahorro25    = ahorroAnual*25;
-    const precioBase  = C.systems[planIdx];
-    const payback     = precioBase/ahorroAnual;
-    const co2Antes    = consumoTotal*12*C.co2;
-    const co2Despues  = co2Antes*(1-cobertura/100);
-    const arboles     = Math.round((co2Antes-co2Despues)/21);
-    const paneles     = Math.ceil(PLANS[planIdx]/0.5);
+    const ahorro25 = ahorroAnual*25;
+    const precioBase = C.systems[planIdx];
+    const payback = precioBase/ahorroAnual;
+    const co2Antes = consumoTotal*12*C.co2;
+    const co2Despues = co2Antes*(1-cobertura/100);
+    const arboles = Math.round((co2Antes-co2Despues)/21);
+    const paneles = Math.ceil(PLANS[planIdx]/0.5);
     setResults({ cobertura, ahorroMes, billAfter, ahorroAnual, ahorro25, payback, consumoTotal, genMes, co2Antes, co2Despues, arboles, precioBase, paneles, kwp:PLANS[planIdx], billOrig:f });
   };
 
-  const G = { // design tokens
-    bg:"#0B0E13", surface:"#1A1F2B", deep:"#141820", border:"rgba(255,255,255,0.08)",
-    gold:"#F5A623", green:"#22C55E", red:"#EF4444", blue:"#5BC8F5",
-    text:"#E8EAF0", muted:"#9CA3AF", dim:"#6B7280",
-  };
-
+  const G = { bg:"#0B0E13", surface:"#1A1F2B", deep:"#141820", border:"rgba(255,255,255,0.08)", gold:"#F5A623", green:"#22C55E", red:"#EF4444", blue:"#5BC8F5", text:"#E8EAF0", muted:"#9CA3AF", dim:"#6B7280" };
   const card = { background:G.surface, border:`1px solid rgba(245,166,35,0.13)`, borderRadius:14, padding:"18px 14px", marginBottom:10 };
   const mCard = { background:G.surface, border:`1px solid rgba(245,166,35,0.12)`, borderRadius:12, padding:"12px 8px", textAlign:"center" };
-
   const rateStr = C.dec===0 ? `${C.symbol}${Math.round(rate)}` : `${C.symbol}${rate.toFixed(C.dec)}`;
 
   return (
     <div style={{ background:G.bg, minHeight:"100vh", fontFamily:"'DM Sans',system-ui,sans-serif", color:G.text, padding:"16px 12px 64px", boxSizing:"border-box" }}>
     <div style={{ maxWidth:700, margin:"0 auto" }}>
-
-      {/* ── TOP BAR ── */}
-      <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:16, gap:8, flexWrap:"nowrap" }}>
-        {/* Logo */}
-        <div style={{ display:"flex", alignItems:"center", gap:9, minWidth:0, flexShrink:1 }}>
+      <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:16, gap:8 }}>
+        <div style={{ display:"flex", alignItems:"center", gap:9 }}>
           <Logo size={44}/>
-          <div style={{ minWidth:0 }}>
-            <div style={{ fontWeight:900, fontSize:15, color:"#FFF", letterSpacing:2, lineHeight:1, whiteSpace:"nowrap" }}>ENERSOLARIS</div>
+          <div>
+            <div style={{ fontWeight:900, fontSize:15, color:"#FFF", letterSpacing:2 }}>ENERSOLARIS</div>
             <div style={{ fontSize:8, fontWeight:600, letterSpacing:2, color:G.blue, textTransform:"uppercase" }}>{L.smartEnergy}</div>
           </div>
         </div>
-        {/* Controls — nunca se envuelven */}
-        <div style={{ display:"flex", gap:6, flexShrink:0 }}>
-          <Dropdown
-            label={`💱 ${cur}`}
-            items={Object.keys(CURRENCIES).map(c=>({ value:c, label:`${CURRENCIES[c].symbol} ${CURRENCIES[c].label}`, active:c===cur }))}
-            onSelect={switchCur}
-          />
-          <Dropdown
-            label={`${LANGS[lang].flag} ${LANGS[lang].tag}`}
-            items={Object.keys(LANGS).map(l=>({ value:l, label:`${LANGS[l].flag} ${LANGS[l].tag}`, active:l===lang }))}
-            onSelect={switchLang}
-          />
+        <div style={{ display:"flex", gap:6 }}>
+          <Dropdown label={`💱 ${cur}`} items={Object.keys(CURRENCIES).map(c=>({ value:c, label:`${CURRENCIES[c].symbol} ${CURRENCIES[c].label}`, active:c===cur }))} onSelect={switchCur}/>
+          <Dropdown label={`${LANGS[lang].flag} ${LANGS[lang].tag}`} items={Object.keys(LANGS).map(l=>({ value:l, label:`${LANGS[l].flag} ${LANGS[l].tag}`, active:l===lang }))} onSelect={setLang}/>
         </div>
       </div>
 
-      {/* ── TÍTULO ── */}
-      <h1 style={{ fontSize:"clamp(24px,6vw,46px)", fontWeight:900, lineHeight:1.05, marginBottom:6, margin:"0 0 6px" }}>
-        {L.title1}<br/><span style={{ color:G.gold }}>{L.title2}</span>
-      </h1>
-      <p style={{ color:G.dim, fontSize:13, marginBottom:24, margin:"0 0 24px" }}>{L.sub}</p>
+      <h1 style={{ fontSize:"clamp(24px,6vw,46px)", fontWeight:900, lineHeight:1.05, margin:"0 0 6px" }}>{L.title1}<br/><span style={{ color:G.gold }}>{L.title2}</span></h1>
+      <p style={{ color:G.dim, fontSize:13, margin:"0 0 24px" }}>{L.sub}</p>
 
       {!results ? (<>
-
-        {/* PASO 1 */}
         <div style={card}>
           <div style={{ fontSize:9, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:G.gold, marginBottom:3 }}>{L.step1}</div>
           <div style={{ fontWeight:800, fontSize:15, marginBottom:14 }}>{L.step1t}</div>
           <label style={{ fontSize:11, color:G.muted, display:"block", marginBottom:5 }}>{L.billLabel}</label>
           <div style={{ display:"flex", alignItems:"center", background:G.deep, border:`1px solid ${G.border}`, borderRadius:10, overflow:"hidden" }}>
-            <span style={{ padding:"0 10px", fontSize:12, fontWeight:700, color:G.gold, background:"rgba(245,166,35,0.1)", borderRight:`1px solid ${G.border}`, alignSelf:"stretch", display:"flex", alignItems:"center", whiteSpace:"nowrap" }}>{C.label}</span>
+            <span style={{ padding:"0 10px", fontSize:12, fontWeight:700, color:G.gold, background:"rgba(245,166,35,0.1)", borderRight:`1px solid ${G.border}`, alignSelf:"stretch", display:"flex", alignItems:"center" }}>{C.label}</span>
             <input style={{ flex:1, background:"transparent", border:"none", outline:"none", color:G.text, fontFamily:"inherit", fontSize:18, fontWeight:600, padding:"11px 10px", minWidth:0 }} type="number" placeholder="..." value={bill} onChange={e=>setBill(e.target.value)}/>
-            <span style={{ padding:"0 10px", fontSize:11, color:G.dim, borderLeft:`1px solid ${G.border}`, whiteSpace:"nowrap" }}>{L.perMonth}</span>
+            <span style={{ padding:"0 10px", fontSize:11, color:G.dim, borderLeft:`1px solid ${G.border}` }}>{L.perMonth}</span>
           </div>
           {consumoFactura>0 && (
             <div style={{ background:"rgba(245,166,35,0.07)", border:"1px solid rgba(245,166,35,0.18)", borderRadius:8, padding:"8px 11px", marginTop:8, fontSize:12 }}>
-              <span style={{ color:G.muted }}>≈ </span>
-              <span style={{ fontWeight:700, color:G.gold }}>{fmtN(consumoFactura)} kWh/mes</span>
+              ≈ <span style={{ fontWeight:700, color:G.gold }}>{fmtN(consumoFactura)} kWh/mes</span>
               <span style={{ color:G.dim }}> · {(consumoFactura/30).toFixed(1)} kWh/día</span>
             </div>
           )}
           <div style={{ marginTop:14 }}>
             <label style={{ fontSize:11, color:G.muted, display:"block", marginBottom:5 }}>{L.rateLabel}</label>
             <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-              <input type="range" min={C.rateMin} max={C.rateMax} step={C.rateStep} value={rate} onChange={e=>setRate(+e.target.value)} style={{ flex:1, accentColor:G.gold, minWidth:0 }}/>
-              <span style={{ minWidth:72, textAlign:"right", fontWeight:700, fontSize:13, color:G.gold, flexShrink:0 }}>{rateStr}/kWh</span>
+              <input type="range" min={C.rateMin} max={C.rateMax} step={C.rateStep} value={rate} onChange={e=>setRate(+e.target.value)} style={{ flex:1, accentColor:G.gold }}/>
+              <span style={{ minWidth:72, textAlign:"right", fontWeight:700, fontSize:13, color:G.gold }}>{rateStr}/kWh</span>
             </div>
             <p style={{ fontSize:10, color:G.dim, marginTop:4 }}>📍 {L.rateHint}</p>
           </div>
         </div>
 
-        {/* PASO 2 */}
         <div style={card}>
           <div style={{ fontSize:9, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:G.gold, marginBottom:3 }}>{L.step2}</div>
           <div style={{ fontWeight:800, fontSize:15, marginBottom:4 }}>{L.step2t}</div>
           <p style={{ fontSize:11, color:G.dim, marginBottom:10 }}>{L.step2sub}</p>
-
           {APPLIANCE_CATS.map(cat => {
             const selCount = cat.subItems.filter((_,si)=>selected.some(s=>s.catId===cat.id&&s.subIdx===si)).length;
             return (
               <div key={cat.id} style={{ background:G.deep, border:`1px solid ${G.border}`, borderRadius:11, marginBottom:7, overflow:"hidden" }}>
                 <div style={{ display:"flex", alignItems:"center", gap:9, padding:"11px 13px" }}>
                   <span style={{ fontSize:20 }}>{cat.icon}</span>
-                  <div style={{ flex:1, minWidth:0 }}>
+                  <div style={{ flex:1 }}>
                     <div style={{ fontWeight:700, fontSize:13 }}>{cat.name[lang]}</div>
-                    <div style={{ fontSize:10, color:G.dim, lineHeight:1.4, marginTop:1 }}>{cat.desc[lang]}</div>
+                    <div style={{ fontSize:10, color:G.dim }}>{cat.desc[lang]}</div>
                   </div>
-                  {selCount>0 && <span style={{ fontSize:10, background:"rgba(34,197,94,0.12)", color:G.green, border:"1px solid rgba(34,197,94,0.3)", borderRadius:5, padding:"2px 7px", flexShrink:0 }}>✓ {selCount}</span>}
+                  {selCount>0 && <span style={{ fontSize:10, background:"rgba(34,197,94,0.12)", color:G.green, border:"1px solid rgba(34,197,94,0.3)", borderRadius:5, padding:"2px 7px" }}>✓ {selCount}</span>}
                 </div>
                 {cat.subItems.map((sub, si) => {
                   const sel = selected.find(s=>s.catId===cat.id&&s.subIdx===si);
@@ -271,11 +234,10 @@ export default function App() {
                     <div key={si} style={{ borderTop:`1px solid rgba(255,255,255,0.04)`, padding:"8px 13px" }}>
                       <div style={{ display:"flex", alignItems:"center", gap:8, flexWrap:"wrap" }}>
                         <span style={{ flex:1, fontSize:12, color:"#C9CDD5", minWidth:100 }}>{sub.label[lang]}</span>
-                        <span style={{ fontSize:10, color:G.dim, whiteSpace:"nowrap" }}>{sub.kw} kW</span>
-                        <button
-                          onClick={()=>sel?remA(cat.id,si):addA(cat.id,si)}
-                          style={{ background:sel?"rgba(34,197,94,0.12)":"rgba(245,166,35,0.1)", border:`1px solid ${sel?"rgba(34,197,94,0.35)":"rgba(245,166,35,0.4)"}`, color:sel?G.green:G.gold, borderRadius:7, padding:"4px 10px", fontSize:11, fontWeight:700, cursor:"pointer", whiteSpace:"nowrap", flexShrink:0 }}
-                        >{sel ? `✓ ${L.removeBtn}` : `+ ${L.addBtn}`}</button>
+                        <span style={{ fontSize:10, color:G.dim }}>{sub.kw} kW</span>
+                        <button onClick={()=>sel?remA(cat.id,si):addA(cat.id,si)} style={{ background:sel?"rgba(34,197,94,0.12)":"rgba(245,166,35,0.1)", border:`1px solid ${sel?"rgba(34,197,94,0.35)":"rgba(245,166,35,0.4)"}`, color:sel?G.green:G.gold, borderRadius:7, padding:"4px 10px", fontSize:11, fontWeight:700, cursor:"pointer" }}>
+                          {sel ? `✓ ${L.removeBtn}` : `+ ${L.addBtn}`}
+                        </button>
                       </div>
                       {sel && (
                         <div style={{ display:"flex", gap:12, marginTop:6, alignItems:"center", flexWrap:"wrap" }}>
@@ -285,7 +247,7 @@ export default function App() {
                           </div>
                           <div style={{ display:"flex", alignItems:"center", gap:5 }}>
                             <span style={{ fontSize:10, color:G.muted }}>{L.qtyLabel}:</span>
-                            <input style={{ background:G.bg, border:`1px solid ${G.border}`, color:G.text, borderRadius:6, padding:"3px 6px", width:40, fontSize:12, fontFamily:"inherit", textAlign:"center" }} type="number" min="1" max="10" step="1" value={sel.qty} onChange={e=>updQ(cat.id,si,e.target.value)}/>
+                            <input style={{ background:G.bg, border:`1px solid ${G.border}`, color:G.text, borderRadius:6, padding:"3px 6px", width:40, fontSize:12, fontFamily:"inherit", textAlign:"center" }} type="number" min="1" max="10" value={sel.qty} onChange={e=>updQ(cat.id,si,e.target.value)}/>
                           </div>
                           <span style={{ fontSize:11, color:G.gold, fontWeight:600 }}>≈ {fmtN(sub.kw*sel.hours*sel.qty*30)} kWh/mes</span>
                         </div>
@@ -296,84 +258,46 @@ export default function App() {
               </div>
             );
           })}
-
-          {selected.length>0 && (
-            <div style={{ background:"rgba(245,166,35,0.07)", border:"1px solid rgba(245,166,35,0.2)", borderRadius:10, padding:"11px 13px", marginTop:4 }}>
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8 }}>
-                <span style={{ fontSize:11, color:G.muted }}>{L.consumDetail}</span>
-                <span style={{ fontWeight:700, color:G.gold, fontSize:13 }}>{fmtN(consumoAppliance)} kWh/mes</span>
-              </div>
-              {selected.map(s => {
-                const cat=APPLIANCE_CATS.find(c=>c.id===s.catId); const sub=cat?.subItems[s.subIdx]; if(!sub) return null;
-                const kwh=sub.kw*s.hours*s.qty*30; const pct=consumoAppliance>0?Math.round(kwh/consumoAppliance*100):0;
-                return (
-                  <div key={`${s.catId}-${s.subIdx}`} style={{ marginBottom:6 }}>
-                    <div style={{ display:"flex", justifyContent:"space-between", fontSize:10, color:G.muted, marginBottom:2 }}>
-                      <span>{cat.icon} {sub.label[lang]}</span>
-                      <span style={{ color:G.text }}>{fmtN(kwh)} kWh · {pct}%</span>
-                    </div>
-                    <div style={{ height:5, background:"#1E2430", borderRadius:3, overflow:"hidden" }}>
-                      <div style={{ height:"100%", width:`${pct}%`, background:G.gold, borderRadius:3 }}/>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
         </div>
 
-        {/* PASO 3 */}
         <div style={card}>
           <div style={{ fontSize:9, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:G.gold, marginBottom:3 }}>{L.step3}</div>
           <div style={{ fontWeight:800, fontSize:15, marginBottom:12 }}>{L.step3t}</div>
-          <label style={{ fontSize:11, color:G.muted, display:"block", marginBottom:5 }}>{L.pshLabel}</label>
           <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-            <input type="range" min="3" max="7" step="0.1" value={hsp} onChange={e=>setHsp(+e.target.value)} style={{ flex:1, accentColor:G.gold, minWidth:0 }}/>
-            <span style={{ minWidth:50, textAlign:"right", fontWeight:700, fontSize:14, color:G.gold, flexShrink:0 }}>{hsp.toFixed(1)} h</span>
+            <input type="range" min="3" max="7" step="0.1" value={hsp} onChange={e=>setHsp(+e.target.value)} style={{ flex:1, accentColor:G.gold }}/>
+            <span style={{ minWidth:50, textAlign:"right", fontWeight:700, fontSize:14, color:G.gold }}>{hsp.toFixed(1)} h</span>
           </div>
           <p style={{ fontSize:10, color:G.dim, marginTop:4 }}>☀️ {L.pshHint}</p>
         </div>
 
-        {/* PASO 4 — PLAN */}
         <div style={card}>
           <div style={{ fontSize:9, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:G.gold, marginBottom:3 }}>{L.step4}</div>
           <div style={{ fontWeight:800, fontSize:15, marginBottom:4 }}>{L.step4t}</div>
-          <p style={{ fontSize:10, color:G.dim, marginBottom:10 }}>{L.planNote}</p>
-          {/* Botones de plan — 2 columnas en mobile */}
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(100px,1fr))", gap:6 }}>
             {PLANS.map((kw,i) => {
               const gen=kw*hsp*30*0.8; const cov=Math.min(gen/Math.max(consumoTotal,1)*100,95); const isRec=i===planRec; const isAct=i===planIdx;
               return (
-                <button key={i} onClick={()=>setPlanIdx(i)} style={{ background:isAct?G.gold:isRec?"rgba(245,166,35,0.08)":G.deep, border:`1px solid ${isAct?G.gold:isRec?"rgba(245,166,35,0.4)":G.border}`, color:isAct?"#0B0E13":isRec?G.gold:G.muted, borderRadius:10, padding:"10px 6px", cursor:"pointer", textAlign:"center", fontFamily:"inherit", transition:"all 0.15s" }}>
+                <button key={i} onClick={()=>setPlanIdx(i)} style={{ background:isAct?G.gold:isRec?"rgba(245,166,35,0.08)":G.deep, border:`1px solid ${isAct?G.gold:isRec?"rgba(245,166,35,0.4)":G.border}`, color:isAct?"#0B0E13":isRec?G.gold:G.muted, borderRadius:10, padding:"10px 6px", cursor:"pointer", textAlign:"center", fontFamily:"inherit" }}>
                   <div style={{ fontWeight:900, fontSize:18 }}>{kw}</div>
-                  <div style={{ fontSize:9, marginTop:1 }}>kWp</div>
-                  <div style={{ fontSize:9, marginTop:1, fontWeight:700, color:isAct?"#0B0E13":G.green }}>{Math.round(cov)}%</div>
-                  {isRec && <div style={{ fontSize:8, fontWeight:700, background:isAct?"rgba(0,0,0,0.15)":"rgba(245,166,35,0.15)", color:isAct?"#0B0E13":G.gold, borderRadius:3, padding:"1px 4px", marginTop:3 }}>★ REC</div>}
+                  <div style={{ fontSize:9 }}>kWp</div>
+                  <div style={{ fontSize:9, fontWeight:700, color:isAct?"#0B0E13":G.green }}>{Math.round(cov)}%</div>
+                  {isRec && <div style={{ fontSize:8, fontWeight:700, color:isAct?"#0B0E13":G.gold }}>★ REC</div>}
                 </button>
               );
             })}
           </div>
-          <div style={{ background:"rgba(245,166,35,0.07)", border:"1px solid rgba(245,166,35,0.18)", borderRadius:8, padding:"9px 11px", marginTop:9, display:"flex", flexWrap:"wrap", gap:"6px 16px" }}>
-            <span style={{ fontSize:11 }}><span style={{ color:G.muted }}>kWp: </span><span style={{ fontWeight:700, color:G.gold }}>{PLANS[planIdx]}</span></span>
-            <span style={{ fontSize:11 }}><span style={{ color:G.muted }}>{L.planPanels}: </span><span style={{ fontWeight:700, color:G.text }}>{Math.ceil(PLANS[planIdx]/0.5)}</span></span>
-            <span style={{ fontSize:11 }}><span style={{ color:G.muted }}>{L.planGen}: </span><span style={{ fontWeight:700, color:G.green }}>{fmtN(genMes)} kWh/mes</span></span>
-            <span style={{ fontSize:11 }}><span style={{ color:G.muted }}>{L.perDay}: </span><span style={{ fontWeight:700, color:G.green }}>{(genMes/30).toFixed(1)} kWh</span></span>
-          </div>
         </div>
 
         {error && <p style={{ color:G.red, fontSize:12, margin:"4px 0 8px" }}>⚠️ {error}</p>}
-        <button onClick={calcular} style={{ width:"100%", padding:14, background:G.gold, color:"#0B0E13", fontWeight:800, fontSize:15, border:"none", borderRadius:12, cursor:"pointer", boxShadow:"0 4px 20px rgba(245,166,35,0.35)", letterSpacing:1 }}>{L.calcBtn}</button>
+        <button onClick={calcular} style={{ width:"100%", padding:14, background:G.gold, color:"#0B0E13", fontWeight:800, fontSize:15, border:"none", borderRadius:12, cursor:"pointer", letterSpacing:1 }}>{L.calcBtn}</button>
 
       </>) : (<>
-
-        {/* RESULTADO */}
         <div style={{ background:"linear-gradient(135deg,rgba(245,166,35,0.13),rgba(245,166,35,0.04))", border:"1px solid rgba(245,166,35,0.35)", borderRadius:14, padding:"22px 14px", marginBottom:10, textAlign:"center" }}>
           <div style={{ fontSize:10, color:G.dim, marginBottom:3, letterSpacing:2, textTransform:"uppercase" }}>{L.savingsMonth}</div>
           <div style={{ fontSize:"clamp(34px,10vw,62px)", fontWeight:900, color:G.gold, lineHeight:1 }}>{fmtCur(results.ahorroMes,cur)}</div>
           <div style={{ fontSize:11, color:G.dim, marginTop:4 }}>{L.coverageLbl}: <span style={{ color:G.green, fontWeight:700 }}>{Math.round(results.cobertura)}%</span></div>
         </div>
 
-        {/* Antes / Después */}
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:10 }}>
           <div style={{ ...mCard, border:"1px solid rgba(239,68,68,0.3)" }}>
             <div style={{ fontSize:10, color:G.muted, marginBottom:4 }}>{L.billBefore}</div>
@@ -387,7 +311,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Métricas 3 col */}
         <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:8, marginBottom:10 }}>
           {[
             { val:fmtCur(results.ahorroAnual,cur), lbl:L.savingsYear, c:G.gold },
@@ -404,7 +327,6 @@ export default function App() {
           ))}
         </div>
 
-        {/* Barras */}
         <div style={{ ...card, padding:"14px" }}>
           {[
             { lbl:L.consumLbl, val:fmtN(results.consumoTotal)+" kWh", pct:100, color:G.red },
@@ -419,7 +341,6 @@ export default function App() {
               </div>
             </div>
           ))}
-
           <div style={{ borderTop:`1px solid ${G.border}`, paddingTop:12, marginTop:4 }}>
             <div style={{ fontWeight:700, fontSize:13, marginBottom:10 }}>{L.envTitle}</div>
             {[
@@ -439,18 +360,8 @@ export default function App() {
           </div>
         </div>
 
-        {/* Sistema elegido */}
-        <div style={{ ...card, display:"flex", gap:12, alignItems:"center", flexWrap:"wrap" }}>
-          <div style={{ background:G.gold, color:"#0B0E13", fontWeight:900, fontSize:20, borderRadius:10, padding:"10px 14px", whiteSpace:"nowrap" }}>{results.kwp} kWp</div>
-          <div>
-            <div style={{ fontWeight:700, fontSize:14, marginBottom:3 }}>{results.paneles} {L.planPanels}</div>
-            <div style={{ fontSize:12, color:G.dim }}>{L.genLbl}: <span style={{ color:G.green, fontWeight:600 }}>{fmtN(results.genMes)} kWh/mes</span> · {L.coverageLbl}: <span style={{ color:G.green, fontWeight:600 }}>{Math.round(results.cobertura)}%</span></div>
-          </div>
-        </div>
-
         <button onClick={()=>setResults(null)} style={{ width:"100%", background:"transparent", border:`1px solid ${G.border}`, color:G.dim, fontFamily:"inherit", fontSize:12, padding:"9px", borderRadius:8, cursor:"pointer", marginTop:4 }}>{L.reset}</button>
       </>)}
-
     </div>
     </div>
   );
